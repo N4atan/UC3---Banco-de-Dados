@@ -1,5 +1,17 @@
-https://home.alunos.gdbarros.com.br/board
+[
+->https://home.alunos.gdbarros.com.br/board
+  ->https://alunos.gdbarros.com.br/phpmyadmin/
+      User:  tdssl241n_Natan_Gabriel
+      Password: 123
+]
 
-https://alunos.gdbarros.com.br/phpmyadmin/
-  User:  tdssl241n_Natan_Gabriel
-  Password: 123
+
+[ 
+  NOVO  SERVIDOR
+   -> painel.alunostds.dev.br
+      User: tdssl241n_natangabrielwildnerdasilva
+      Password: natangabrielwildnerdasilva123
+
+    -> https://tdssl241n-natangabrielwildnerdasilva.alunostds.dev.br/phpmyadmin/
+      The initial administration login is tdssl241n_natangabrielwildnerdasilva with the password 75W1J8tgLevYuTN
+]
