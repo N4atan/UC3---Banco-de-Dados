@@ -1,0 +1,44 @@
+CREATE DATABASE loja;
+	USE loja;
+
+	CREATE TABLE clientes (
+		Id_cliente INT PRIMARY KEY,
+		Nome VARCHAT(100),
+		email VARCHAT(100)
+	);
+
+	CREATE TABLE pedidos (
+		Id_pedidos INT PRIMARY KEY,
+		descrição VARCHAR(200),
+		valor DECIMAL(10, 2),
+		Id_cliente INT,
+		FOREGER KEY (id_cliente) REFERENCES clientes(id_clientes)
+	);
+
+	
+	INSERT INTO clientes (id_clientes, nome, email) VALUES
+	(1, ‘Natan Gabriel Wildner da Silva’, ‘gabrielnathan2912@gmail.com’),
+	(2, ‘Lindseu Isadora Nogueira Correa’, ‘lindseyisadora86@gmail.com’),
+	(3, ‘Gabriela Wildner da Silva’, ‘Não tem’);
+
+	INSERT INTO pedidos (id_pedidos, descricao, valor, id_clientes) VALUES
+	(101, ‘Compra de Movéis’, 1500.00, 1),
+	(102, ‘Pedidos de eletrônicos’, 2500.50, 2),
+	(103, ‘Serviços de instalação’, 500.00, 3);
+
+Podemos usar IGNORE após INSERT para ignorar um que já existe
+		
+							28/06/2024
+RENAME TABLE tabela1 TO tabela1.1		--> Alterar nome de tabela
+
+ALTER TABLE tabela1.1		
+CHANGE nome nomes VARCHAR(100);			--> Alterar nome de coluna
+
+ALTER TABLE tabela1.1				--> Adicionar tabela
+ADD COLUMN telefone VARCHAR(15);
+
+UPDATE nomeTabela				--> Atualizando a coluna nova que criamos, WHERE seria o 'local', onde tal item estiver vai setar o telefone no caso do exemp
+SET nomeColuna = x
+WHERE condição
+
+na criação de uma nova tabela podemos botar na primary key: PRIMARY KEY AUTO_INCREMENT
