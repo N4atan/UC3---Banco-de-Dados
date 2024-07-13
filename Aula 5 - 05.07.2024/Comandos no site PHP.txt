@@ -42,3 +42,83 @@ SET nomeColuna = x
 WHERE condição
 
 na criação de uma nova tabela podemos botar na primary key: PRIMARY KEY AUTO_INCREMENT
+
+
+--BUSCA
+SELECT colunas, da, tabela
+    FROM tabela
+
+SELECT * --Seleciona automaticamente todas
+    FROM tabala
+
+SELECT colunaqueesta o item
+    FROM tabela
+    WHERE linhadele
+
+--Pegar varios
+SELECT colunadoitem
+    FROM tabela
+    WHERE locdele IN (X,X,X)
+
+SELECT *
+    FROM tabela
+    ORDER BY algumaColuna ASC --ou DESC
+
+SELECT *
+    FROM tabela
+    WHERE algumaColuna
+    ORDER BY algumaColuna ASC --ou DESC
+
+SELECT *
+    FROM tabela
+    LIMIT 3 --limita a quantidade de itens de busca
+
+SELECT DISTINCT item --Nao vai repitir os itens por conta do DISTINCT
+    FROM tabela
+
+--Contar valor total de pedidos
+SELECT COUNT(*) FROM Pedidos
+
+--Soma do valor total
+SELECT SUM(ValorTotal) AS valor_total_pedidos FROM Pedidos
+
+--Valor medio
+SELECT AVG(ValorTotal) AS valor_medio_pedidos FROM Pedidos 
+
+--Esse AS serve para estética, para o resultado aparecer como coluna com tal nome.
+
+--Pedido com maior valor
+SELECT MAX(NumeroPedido) AS pedido_maior_valor FROM Pedidos
+SELECT MIN(NumeroPedido) AS pedido_maior_valor FROM Pedidos
+
+--Pegar o dados de uma tabela e outra e juntar-los.
+SELECT CLIENTES.ID_Cliente, CLIENTES.Nome, CLIENTES.email, Pedidos.NumeroPedido
+	FROM CLIENTES
+	INNER JOIN Pedidos ON CLIENTES.ID_Cliente = Pedidos.id_Cliente
+
+--Seleciona todos os clientes, mesmo que nao tenha pedidos relacionados ao id dele.
+SELECT CLIENTES.ID_Cliente, CLIENTES.Nome, CLIENTES.email, Pedidos.NumeroPedido
+	FROM CLIENTES
+	LEFT JOIN Pedidos ON CLIENTES.ID_Cliente = Pedidos.id_Cliente
+
+
+--Consulta de junção com condição
+USE tdssl241n_natangabrielwildnerdasilva;
+SELECT CLIENTES.ID_Cliente, CLIENTES.Nome, CLIENTES.email, Pedidos.NumeroPedido, Pedidos.ValorTotal
+	FROM CLIENTES
+	INNER JOIN Pedidos ON CLIENTES.ID_Cliente = Pedidos.id_Cliente
+	WHERE Pedidos.ValorTotal > 200;
+
+--Exemplo de somar total de pedidos e oclocar e o respectivo clientes
+USE tdssl241n_natangabrielwildnerdasilva;
+
+SELECT CLIENTES.Nome, COUNT(Pedidos.ID_Pedido) AS total_pedidos
+FROM CLIENTES INNER JOIN Pedidos ON CLIENTES.ID_Cliente = Pedidos.id_Cliente
+GROUP BY CLIENTES.Nome
+
+--Pedido do sor
+USE tdssl241n_natangabrielwildnerdasilva;
+
+SELECT CLIENTES.Nome, COUNT(Pedidos.ID_Pedido) AS total_pedidos, SUM(Pedidos.ValorTotal) AS valortotal_gasto
+FROM CLIENTES INNER JOIN Pedidos ON CLIENTES.ID_Cliente = Pedidos.id_Cliente
+GROUP BY CLIENTES.Nome
